@@ -1,20 +1,4 @@
-# LLM Playground
-
-## Launch EC2 instance from AMI
-* AWS Account: aws_education
-* AWS Region: Oregon
-* AMI Name: LLaMA-QLora-FastAttention
-* Instance Type = g5.2xlarge - 1xA10 GPU 24GB
-
-## Clone LM Playground GitLab repository containing all source code
-```
-# Clone latest version of LLM Playground repository
-git clone https://oauth2:glpat-ocQAE5TtC2ePRgVaW6RB@gitlab.provectus.com/provectus-internals/llm-playground ./llm-playground
-# Enter to the repository source code
-cd llm-playground
-# Activate conda environment already prepared for PEFT LLaMA2 Qlora Fast Attention
-source activate pytorch
-```
+# Parameter Efficient Fine Tuning for LLaMa-2 + QLoRA Quantization + Fast Attention V2 Training Optimization
 
 ## Launching PEFT LLaMA2 `13B` Qlora Fast Attention
 ### PEFT LLaMA2 13B Qlora Fast Attention on `databricks/databricks-dolly-15k` dataset using official `meta-llama/Llama-2-7b-hf` model from hugging face
