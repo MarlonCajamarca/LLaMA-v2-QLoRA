@@ -1,4 +1,4 @@
-# Parameter Efficient Fine Tuning for LLaMa-2 + QLoRA Quantization + Fast Attention V2 Training Optimization
+# Parameter Efficient Fine Tuning for LLaMa-2 + QLoRA Quantization + Fast Attention V2 Training Optimization For Code Generation of Cypher Queries from English instructions
 
 ## Launching PEFT LLaMA2 `13B` Qlora Fast Attention
 ### PEFT LLaMA2 13B Qlora Fast Attention on `databricks/databricks-dolly-15k` dataset using official `meta-llama/Llama-2-7b-hf` model from hugging face
@@ -11,10 +11,10 @@ python llama2_peft_training.py --model_name meta-llama/Llama-2-13b-hf --dataset_
 ```bash
 python llama2_peft_training.py --model_name NousResearch/Llama-2-7b-hf --dataset_name mlabonne/CodeLlama-2-20k --output_dir ./LLaMA2-QLoRA --output_model_name Llama-2-7b-hf-QLoRA-FA-CodeLLaMA2-20K --num_train_epochs 3 --per_device_train_batch_size 6 --gradient_accumulation_steps 2 --bf16 True --tf32 True --use_nested_quant True --bnb_4bit_compute_dtype bfloat16 --max_seq_length 2048 --use_flash_attention True --merge_weights True
 ```
+
 ## Chain Of Thought Augmentation
 * Chain Of Thought Augmentation is a technique to enhance the quality of the seed text by generating step-by-step explanations for the seed text.
 * Chain Of Thought Augmentation is implemented as a separate python script `CoT_augmenter.py` which takes as input a json file with seed prompts and generates a json file with augmented seed prompts.
-### Launching Chain Of Thought Augmentation for English 2 Cypher seed prompts
 
 ```bash
 python data_augmenters/English-Cypher/CoT_augmenter.py --input_file data/English-Cypher/ChainOfThought/CoT_pharma_test.json --output_file data/English-Cypher/ChainOfThought/CoT_pharma_augmented_test.json --model gpt-4 --temperature 0.0 --max_tokens 4096
